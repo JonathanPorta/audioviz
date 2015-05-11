@@ -21,7 +21,7 @@ public class BarVisualizerLayout : VisualizerLayout {
 			
 			visualizers[i] = v;
 
-			Camera.main.transform.position = new Vector3(visualizerCount * 1.5f / 2, height / 2, -50.0f);
+			//Camera.main.transform.position = new Vector3(visualizerCount * 1.5f / 2, height / 2, -50.0f);
 		}
 	}
 }

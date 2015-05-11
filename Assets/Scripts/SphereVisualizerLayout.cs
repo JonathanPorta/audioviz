@@ -2,6 +2,11 @@
 using System.Collections;
 
 public class SphereVisualizerLayout : VisualizerLayout {
+
+	public GameObject[] light;
+
+	private bool firstRender = true;
+
 	override public void Reset(){
 		for(int i = 0; i < visualizers.Length; i++){
 			if(visualizers[i] != null){
@@ -20,9 +25,13 @@ public class SphereVisualizerLayout : VisualizerLayout {
 			v.heightLimit = height;
 			
 			visualizers[i] = v;
-
-			Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -75.0f);
-			Camera.main.transform.LookAt(transform.position);
 		}
+		if(firstRender)
+			Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -75.0f);
+		//Camera.main.transform.LookAt(transform.position);
+		light[0].transform.LookAt(transform.position);
+		light[1].transform.LookAt(transform.position);
+		//light.GetComponent<Light>();
+		firstRender = false;
 	}
 }
